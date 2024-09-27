@@ -6,6 +6,9 @@
             <div class="col-12 text-center">
                 <h1>Elenco Fumetti</h1>
             </div>
+            <div>
+                <a href="{{ route('comics.create') }}" class="btn btn-sm btn-primary">Aggiungi Fumetto</a>
+            </div>
         </div>
         <div class="row">
             <div class="col-12">
