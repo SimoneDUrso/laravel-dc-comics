@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container py-5">
+    <div class="container py-4 container-create">
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10">
                 <div class="card shadow-lg rounded">
@@ -56,8 +56,9 @@
 
                                 <div class="col-12 text-center">
                                     <button type="submit" class="btn btn-success btn-lg rounded-pill px-5">Salva</button>
+                                    <a href="{{ route('comics.index') }}" class="btn btn-primary btn-lg rounded-pill">Torna
+                                        indietro</a>
                                 </div>
-
                             </div>
                         </form>
                     </div>

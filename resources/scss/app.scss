@@ -1,41 +1,47 @@
 @import '~bootstrap/scss/bootstrap';
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     overflow-x: hidden;
+    min-height: 100vh; /* Assicura che il body occupi l'intera altezza della finestra */
 }
 
-header{
+header {
     background-image: url(https://files.oaiusercontent.com/file-6lcbm19yVYF3P6QNSoMGaezF?se=2024-09-28T10%3A31%3A42Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D07536429-4a75-47c4-8651-b31d0b053b43.webp&sig=rfQb//A2PT5nC%2BoqTQSobnJT9ayDnwx8jDD3Q09S2tw%3D);
     background-size: cover;
     background-position: center;
 
-    li{
+    li {
         padding: 5px;
         background-color: rgba(0, 0, 0, 0.74);
         transition: background-color 0.3s;
 
-        &:hover{
+        &:hover {
             background-color: black;
         }
     }
 }
 
-.bg-home{
-    height: calc(100vh - 110px);
+.bg-home {
+    height: calc(100vh - 222px);
     background-color: black;
 
-    h1{
+    h1 {
         padding: 5px;
         background-color: rgba(216, 216, 216, 0.74);
         color: black;
     }
 }
 
-.w-15{
+.w-15 {
     width: 15%;
+}
+
+.container-show, .container-home, .container-create{
+    height: calc(100vh - 222px);
 }
