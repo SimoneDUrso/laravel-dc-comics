@@ -1,10 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container-full">
         <div class="row">
-            <div class="col-12 text-center">
-                <h1>Benvenuti a tutti!</h1>
+            <div class="col-12 bg-home text-center d-flex justify-content-center align-items-center">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <h1>Benvenuti a tutti!</h1>
+                    </div>
+                </div>
             </div>
 
         </div>
