@@ -44,10 +44,15 @@
                                             class="btn btn-sm btn-outline-warning">
                                             <i class="bi bi-pen"></i>
                                         </a>
-                                        {{-- <a href="{{ route('comics.delete', ['comic' => $comic->id]) }}"
-                                            class="btn btn-sm btn-outline-danger">
-                                            <i class="bi bi-trash"></i>
-                                        </a> --}}
+                                        <form action="{{ route('comics.destroy', ['comic' => $comic->id]) }}" method="post"
+                                            class="d-inline">
+                                            @csrf
+                                            @method('delete')
+
+                                            <button onclick="return confirm('Sei sicuro di voler cancellare il record?')"
+                                                type="submit" class="btn btn-sm btn-outline-danger"><i
+                                                    class="bi bi-trash"></i>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
