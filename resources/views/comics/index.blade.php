@@ -35,11 +35,19 @@
                                     <td>{{ $comic->series }}</td>
                                     <td>{{ $comic->sale_date }}</td>
                                     <td>{{ $comic->type }}</td>
-                                    <td class="text-center">
+                                    <td class="text-center w-15">
                                         <a href="{{ route('comics.show', ['comic' => $comic->id]) }}"
                                             class="btn btn-sm btn-outline-primary">
                                             <i class="bi bi-eye-fill"></i>
                                         </a>
+                                        <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}"
+                                            class="btn btn-sm btn-outline-warning">
+                                            <i class="bi bi-pen"></i>
+                                        </a>
+                                        {{-- <a href="{{ route('comics.delete', ['comic' => $comic->id]) }}"
+                                            class="btn btn-sm btn-outline-danger">
+                                            <i class="bi bi-trash"></i>
+                                        </a> --}}
                                     </td>
                                 </tr>
                             @endforeach
