@@ -6,6 +6,15 @@
             <div class="col-lg-8 col-md-10">
                 <div class="card shadow-lg rounded">
                     <div class="card-body p-5">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul class="list-unstyled m-0">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <h1 class="display-6 text-center mb-4">Aggiungi Nuovo Fumetto</h1>
 
                         <form action="{{ route('comics.store') }}" method="POST">
