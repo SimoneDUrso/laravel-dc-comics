@@ -28,8 +28,9 @@
 
                 <div class="col-12 col-md-6">
                     <label for="thumb" class="form-label">Immagine</label>
-                    <input value="{{ old('thumb') }}" type="text" class="form-control rounded-pill" name="thumb"
-                        id="thumb" placeholder="URL Immagine">
+                    <input value="{{ old('thumb') }}" type="text"
+                        class="form-control rounded-pill @error('thumb') is-invalid @enderror" name="thumb" id="thumb"
+                        placeholder="URL Immagine">
                     @error('thumb')
                         <div class="text-danger"> {{ $message }} </div>
                     @enderror
@@ -37,7 +38,8 @@
 
                 <div class="col-12">
                     <label for="description" class="form-label">Descrizione Fumetto</label>
-                    <textarea class="form-control rounded" name="description" id="description" rows="4" placeholder="Descrizione">{{ old('description') }}</textarea>
+                    <textarea class="form-control rounded @error('description') is-invalid @enderror" name="description" id="description"
+                        rows="4" placeholder="Descrizione">{{ old('description') }}</textarea>
                     @error('description')
                         <div class="text-danger"> {{ $message }} </div>
                     @enderror
@@ -45,8 +47,9 @@
 
                 <div class="col-12 col-md-6">
                     <label for="price" class="form-label">Prezzo</label>
-                    <input value="{{ old('price') }}" type="text" class="form-control rounded-pill" name="price"
-                        id="price" placeholder="Prezzo">
+                    <input value="{{ old('price') }}" type="text"
+                        class="form-control rounded-pill @error('price') is-invalid @enderror" name="price" id="price"
+                        placeholder="Prezzo">
                     @error('price')
                         <div class="text-danger"> {{ $message }} </div>
                     @enderror
@@ -54,7 +57,8 @@
 
                 <div class="col-12 col-md-6">
                     <label for="series" class="form-label">Serie</label>
-                    <input value="{{ old('series') }}" type="text" class="form-control rounded-pill" name="series"
+                    <input value="{{ old('series') }}" type="text"
+                        class="form-control rounded-pill @error('series') is-invalid @enderror" name="series"
                         id="series" placeholder="Serie">
                     @error('series')
                         <div class="text-danger"> {{ $message }} </div>
@@ -63,7 +67,8 @@
 
                 <div class="col-12 col-md-6">
                     <label for="sale_date" class="form-label">Data di Vendita</label>
-                    <input value="{{ old('sale_date') }}" type="date" class="form-control rounded-pill" name="sale_date"
+                    <input value="{{ old('sale_date') }}" type="date"
+                        class="form-control rounded-pill @error('sale_date') is-invalid @enderror" name="sale_date"
                         id="sale_date">
                     @error('sale_date')
                         <div class="text-danger"> {{ $message }} </div>
@@ -72,8 +77,9 @@
 
                 <div class="col-12 col-md-6">
                     <label for="type" class="form-label">Tipo Fumetto</label>
-                    <input value="{{ old('type') }}" type="text" class="form-control rounded-pill" name="type"
-                        id="type" placeholder="Tipo">
+                    <input value="{{ old('type') }}" type="text"
+                        class="form-control rounded-pill @error('type') is-invalid @enderror" name="type" id="type"
+                        placeholder="Tipo">
                     @error('type')
                         <div class="text-danger"> {{ $message }} </div>
                     @enderror

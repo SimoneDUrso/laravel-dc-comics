@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Comic;
 
+use App\Http\Requests\StoreComicRequest;
+use App\Http\Requests\UpdateComicRequest;
+use Illuminate\Support\Facades\Validator;
+
 class ComicController extends Controller
 {
     /**
@@ -34,42 +38,11 @@ class ComicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request, Comic $comic)
     {
-        $request->validate(
-            [
-                'title' => 'required|max:50',
-                'thumb' => 'max:255',
-                'price' => 'decimal:2',
-                'series' => 'max:255',
-                'sale_date' => 'date',
-                'type' => 'required|max:50'
-            ],
-            [
-                'title.required' => 'Il titolo del fumetto è obbligatorio',
-                'title.max' => 'Il titolo del fumetto deve essere lungo al massimo 50 caratteri',
-                'thumb.max' => "L'URL del fumetto deve essere lungo al massimo 50 caratteri",
-                'price.decimal' => 'Inserisci il prezzo con un massimo di due decimali',
-                'series.max' => 'Il nome della serie deve avere un massimo di 255 lettere',
-                'sale_date.date' => 'Per favore, inserire una data valida',
-                'type.required' => 'Il tipo del fumetto è obbligatorio',
-                'type.max' => 'Il tipo del fumetto deve essere lungo al massimo 50 caratteri',
-            ]
-        );
+        $form_data = $request->validated();
 
-
-        $form_data  = $request->all();
-
-        $comic = new Comic();
-
-        $comic->title = $form_data['title'];
-        $comic->thumb = $form_data['thumb'];
-        $comic->description = $form_data['description'];
-        $comic->price = $form_data['price'];
-        $comic->series = $form_data['series'];
-        $comic->sale_date = $form_data['sale_date'];
-        $comic->type = $form_data['type'];
-
+        $comic->fill($form_data);
         $comic->save();
 
         return redirect()->route('comics.index');
@@ -106,42 +79,11 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comic $comic)
+    public function update(UpdateComicRequest $request, Comic $comic)
     {
+        $form_data = $request->validated();
 
-        $request->validate(
-            [
-                'title' => 'required|max:50',
-                'thumb' => 'max:255',
-                'price' => 'decimal:2',
-                'series' => 'max:255',
-                'sale_date' => 'date',
-                'type' => 'required|max:50'
-            ],
-            [
-                'title.required' => 'Il titolo del fumetto è obbligatorio',
-                'title.max' => 'Il titolo del fumetto deve essere lungo al massimo 50 caratteri',
-                'thumb.max' => "L'URL del fumetto deve essere lungo al massimo 50 caratteri",
-                'price.decimal' => 'Inserisci il prezzo con un massimo di due decimali',
-                'series.max' => 'Il nome della serie deve avere un massimo di 255 lettere',
-                'sale_date.date' => 'Per favore, inserire una data valida',
-                'type.required' => 'Il tipo del fumetto è obbligatorio',
-                'type.max' => 'Il tipo del fumetto deve essere lungo al massimo 50 caratteri',
-            ]
-        );
-
-        $form_data  = $request->all();
-
-
-        $comic->title = $form_data['title'];
-        $comic->thumb = $form_data['thumb'];
-        $comic->description = $form_data['description'];
-        $comic->price = $form_data['price'];
-        $comic->series = $form_data['series'];
-        $comic->sale_date = $form_data['sale_date'];
-        $comic->type = $form_data['type'];
-
-        $comic->update();
+        $comic->update($form_data);
 
         return redirect()->route('comics.show', compact('comic'));
     }
