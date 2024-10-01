@@ -44,6 +44,16 @@ class ComicController extends Controller
                 'series' => 'max:255',
                 'sale_date' => 'date',
                 'type' => 'required|max:50'
+            ],
+            [
+                'title.required' => 'Il titolo del fumetto è obbligatorio',
+                'title.max' => 'Il titolo del fumetto deve essere lungo al massimo 50 caratteri',
+                'thumb.max' => "L'URL del fumetto deve essere lungo al massimo 50 caratteri",
+                'price.decimal' => 'Inserisci il prezzo con un massimo di due decimali',
+                'series.max' => 'Il nome della serie deve avere un massimo di 255 lettere',
+                'sale_date.date' => 'Per favore, inserire una data valida',
+                'type.required' => 'Il tipo del fumetto è obbligatorio',
+                'type.max' => 'Il tipo del fumetto deve essere lungo al massimo 50 caratteri',
             ]
         );
 
@@ -107,6 +117,16 @@ class ComicController extends Controller
                 'series' => 'max:255',
                 'sale_date' => 'date',
                 'type' => 'required|max:50'
+            ],
+            [
+                'title.required' => 'Il titolo del fumetto è obbligatorio',
+                'title.max' => 'Il titolo del fumetto deve essere lungo al massimo 50 caratteri',
+                'thumb.max' => "L'URL del fumetto deve essere lungo al massimo 50 caratteri",
+                'price.decimal' => 'Inserisci il prezzo con un massimo di due decimali',
+                'series.max' => 'Il nome della serie deve avere un massimo di 255 lettere',
+                'sale_date.date' => 'Per favore, inserire una data valida',
+                'type.required' => 'Il tipo del fumetto è obbligatorio',
+                'type.max' => 'Il tipo del fumetto deve essere lungo al massimo 50 caratteri',
             ]
         );
 
